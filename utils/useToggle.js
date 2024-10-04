@@ -5,6 +5,7 @@
  */
 export function useToggle(initialValue = false) {
   const state = ref(initialValue);
+  console.log('state: ', state);
 
   // Funzione per cambiare lo stato
   function toggle() {

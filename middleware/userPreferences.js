@@ -16,7 +16,7 @@ export default defineNuxtRouteMiddleware(async () => {
       latitude: geoloc?.latitude || position?.latitude || defaultPreferences.location.latitude,
       longitude: geoloc?.longitude || position?.longitude || defaultPreferences.location.longitude,
       timezone: geoloc?.timezone || defaultPreferences.timezone,
-      theme: defaultPreferences.theme,
+      darkTheme: defaultPreferences.darkTheme,
     }
   }
 
@@ -82,7 +82,7 @@ export default defineNuxtRouteMiddleware(async () => {
           latitude: position.latitude,
           longitude: position.longitude,
           timezone: defaultPreferences.timezone,
-          theme: defaultPreferences.theme,
+          darkTheme: defaultPreferences.darkTheme,
         }
       } else if (geoloc) {
         userPrefs.value = setPreferencesFromGeoloc(geoloc, position)

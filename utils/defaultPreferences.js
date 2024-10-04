@@ -6,5 +6,5 @@ export const defaultPreferences = {
   latitude: null,
   longitude: null,
   timezone: null,
-  theme: 'dark'
+  darkTheme: false
 }

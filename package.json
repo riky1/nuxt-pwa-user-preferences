@@ -9,7 +9,7 @@
 
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port 3015",
+    "dev": "nuxt dev --port 3014",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"

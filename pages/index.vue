@@ -4,17 +4,10 @@ definePageMeta({
   middleware: ['user-preferences']
 })
 
-const isDark = ref()
-
-const { data: preferences, status, error } = useAsyncData('user-preferences', async () => {
-  
+const { data: preferences, status, error } = useAsyncData('user-preferences', async () => {  
   const userPrefs = useStorePreferences();
 
-  if (userPrefs.value) {
-    if (userPrefs.value.theme === 'dark') {
-      isDark.value = true
-    }
-    
+  if (userPrefs.value) {   
     return userPrefs.value;
   }
   
@@ -26,7 +19,7 @@ const { data: preferences, status, error } = useAsyncData('user-preferences', as
     country: 'Sconosciuto',
     city: 'Sconosciuta',
     language: 'it',
-    theme: 'light'
+    darkTheme: false
   };
 });
 </script>
@@ -35,13 +28,13 @@ const { data: preferences, status, error } = useAsyncData('user-preferences', as
   <div>
   <h1>Index page</h1>
 
-  <ButtonToggleTheme /> 
-
   <div v-if="status === 'pending'">Caricamento...</div>
 
   <div v-else-if="error">Errore: {{ error.message }}</div>
 
   <ul v-else>
+    <ButtonToggleTheme :isDarkValue="preferences.theme" /> 
+    
     <li>Type: {{ preferences.type }}</li>
     <li>Paese: {{ preferences.country }}</li>
     <li>Lingua: {{ preferences.language }}</li>

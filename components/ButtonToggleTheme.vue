@@ -1,18 +1,27 @@
 <script setup>
 
-const [isDark, toggle] = useToggle()
+const props = defineProps({
+  isDarkValue: {
+    type: Boolean,
+    default: false,
+  }
+})
 
-function toggleBodyTheme() {
-  const $body = document.body
-  $body.classList.toggle('dark')
-}
+const [isDark, toggle] = useToggle(props.isDarkValue)
 
 const toggleAndSaveTheme = () => {
   toggle() // Cambia lo stato del toggle
+}
 
-  toggleBodyTheme() 
-};
+// TODO: inserire logica nell'header affinchè funzioni in tutte le pagine
 
+// TODO: salvare preferenze nei cookie e idb
+
+useHead({
+  bodyAttrs: {
+    class: { 'dark': isDark }
+  }
+})
 </script>
 
 <template>
