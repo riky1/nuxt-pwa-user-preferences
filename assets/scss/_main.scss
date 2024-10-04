@@ -1,0 +1,9 @@
+body {
+  background-color: var(--up-bg-light);
+  color: var(--up-text-light);
+
+  &.dark {
+    background-color: var(--up-bg-dark);
+    color: var(--up-text-dark);
+  }
+}

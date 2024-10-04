@@ -7,6 +7,11 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt"
   ],
 
+  css: [
+    '~/assets/scss/_root.scss',
+    '~/assets/scss/_main.scss'
+  ],
+
   runtimeConfig: {
     MAPTILER_API_KEY: process.env.MAPTILER_API_KEY,
     MAPTILER_GEOCOD_API_BASEURL: process.env.MAPTILER_GEOCOD_API_BASEURL,
