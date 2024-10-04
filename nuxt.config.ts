@@ -7,6 +7,12 @@ export default defineNuxtConfig({
     "@vite-pwa/nuxt"
   ],
 
+  runtimeConfig: {
+    MAPTILER_API_KEY: process.env.MAPTILER_API_KEY,
+    MAPTILER_GEOCOD_API_BASEURL: process.env.MAPTILER_GEOCOD_API_BASEURL,
+    MAPTILER_GEOLOC_API_BASEURL: process.env.MAPTILER_GEOLOC_API_BASEURL
+  },
+
   pwa: {
     devOptions: {
       enabled: false
