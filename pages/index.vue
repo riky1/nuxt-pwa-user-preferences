@@ -52,12 +52,16 @@ const { data: preferences, status, error } = useAsyncData('user-preferences', as
 </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+  li {
+    list-style: none;
+  }
+
  .dark {
   background-color: rgba(0, 0, 0, 0.8);
- }
 
- .dark ul {
-  color: #fff;
+  ul {
+    color: #fff;
+  }
  }
 </style>
