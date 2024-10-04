@@ -1,0 +1,1 @@
+export const useStorePreferences = () => useState('user-preferences', () => '')
