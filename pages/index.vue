@@ -35,6 +35,8 @@ const { data: preferences, status, error } = useAsyncData('user-preferences', as
   <div>
   <h1>Index page</h1>
 
+  <ButtonToggleTheme /> 
+
   <div v-if="status === 'pending'">Caricamento...</div>
 
   <div v-else-if="error">Errore: {{ error.message }}</div>

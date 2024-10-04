@@ -1,0 +1,29 @@
+
+├── components
+│   └── ButtonToggleTheme.vue
+│
+├── composables
+│   ├── useCookiePreferences.js
+│   ├── useGeolocation.js
+│   ├── useIDBPreferences.js
+│   └── useState.js
+│
+├── middleware
+│   └── userPreferences.js
+│
+├── pages
+│   └── index.vue
+│
+├── server
+│   └── api
+│     	 └── geolocation.js
+│
+├── utils
+│   ├── defaultPreferences.js
+│   └── useToggle.js
+│
+├── .env
+├── app.vue
+├── nuxt.config.ts
+├── package.json
+└── tsconfig.json
