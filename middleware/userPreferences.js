@@ -3,6 +3,9 @@ export default defineNuxtRouteMiddleware(async () => {
   const userPrefs = useStorePreferences() // Inizializza lo store
   const { getGeolocation } = useGeolocation()
 
+  const { getCookiePreferences, setCookiePreferences } = useCookiePreferences()
+  const { getIdbPreferences, setIdbPreferences } = useIDBPreferences()
+
   // Funzione per impostare le preferenze basate su geolocalizzazione e predefiniti
   const setPreferencesFromGeoloc = (geoloc, position = null) => {
     return {
@@ -22,7 +25,6 @@ export default defineNuxtRouteMiddleware(async () => {
     console.log('Server side')
 
     // Recupera le preferenze dai cookie
-    const { getCookiePreferences, setCookiePreferences } = useCookiePreferences()
     const cookiePreferences = getCookiePreferences()
 
     if (cookiePreferences) {
@@ -58,7 +60,6 @@ export default defineNuxtRouteMiddleware(async () => {
     }
 
     // Recupera le preferenze da IndexedDB
-    const { getIdbPreferences, setIdbPreferences } = useIDBPreferences()
     const idbPreferences = await getIdbPreferences('preferences')
 
     if (idbPreferences) {
@@ -92,6 +93,7 @@ export default defineNuxtRouteMiddleware(async () => {
 
       console.log('Client UserPrefs: ', JSON.stringify(userPrefs.value))
       await setIdbPreferences('preferences', JSON.stringify(userPrefs.value))
+      setCookiePreferences(userPrefs.value) // Sincronizza le preferenze nei cookie
     }
   }
 })
