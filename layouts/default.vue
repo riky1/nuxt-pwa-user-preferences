@@ -20,6 +20,6 @@
 #__nuxt {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 10px);
+  min-height: 100vh;
 }
 </style>

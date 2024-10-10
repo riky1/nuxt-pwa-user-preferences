@@ -7,8 +7,7 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: {
-          api: 'modern-compiler',
-          additionalData: '@use "~/assets/scss/_main.scss" as *;'
+          api: 'modern-compiler'
         }
       }
     }
@@ -16,6 +15,10 @@ export default defineNuxtConfig({
 
   modules: [
     "@vite-pwa/nuxt"
+  ],
+
+  css: [
+    '~/assets/scss/main.scss'
   ],
 
   runtimeConfig: {
