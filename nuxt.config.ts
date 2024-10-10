@@ -3,13 +3,19 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
 
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+          additionalData: '@use "~/assets/scss/_main.scss" as *;'
+        }
+      }
+    }
+  },
+
   modules: [
     "@vite-pwa/nuxt"
-  ],
-
-  css: [
-    '~/assets/scss/_root.scss',
-    '~/assets/scss/_main.scss'
   ],
 
   runtimeConfig: {
