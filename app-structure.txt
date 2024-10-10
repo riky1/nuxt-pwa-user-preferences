@@ -2,6 +2,7 @@
 ├── assets
 │   ├── _main.scss
 │   └── _root.scss
+│
 ├── components
 │   └── ButtonToggleTheme.vue
 │
