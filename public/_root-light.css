@@ -1,0 +1,9 @@
+:root {
+  --text-primary: var(--zinc-700);
+  --text-primary-hover: var(--zinc-400);
+
+  --header-bg: var(--white);
+  --header-border: var(--zinc-200);
+
+  --button-bg-hover: var(--zinc-200);
+}

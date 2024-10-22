@@ -1,0 +1,14 @@
+// Utilizzo di em invece di rem per bug su Safari:
+// se si imposta nell'HTML una percentuale per il font-size la media-query rem ne viene influenzata 
+// https://zellwk.com/blog/media-query-units/
+
+@mixin media-query($breakpoint) {
+  $value: map-get($breakpoints, $breakpoint);
+
+  @if $value !=null {
+    @media only screen and (min-width: #{calc-em($value)}) {
+      @content;
+    }
+  }
+}
+

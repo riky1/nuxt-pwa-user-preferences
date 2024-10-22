@@ -1,0 +1,26 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.17.0"
+  },
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port 3019",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@vite-pwa/nuxt": "^0.10.5",
+    "nuxt": "^3.13.0",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "sass": "^1.79.5",
+    "sass-loader": "^16.0.2"
+  },
+  "packageManager": "pnpm@8.13.1+sha1.90f9b2bb3ed58632bcb7b13c3902d6873ee9501c"
+}

@@ -1,0 +1,22 @@
+@import "./breakpoint";
+@import "./functions";
+@import "./mixins/media-query";
+
+%content--wrapper {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @include media-query(md) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @include media-query(lg) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  } 
+}
