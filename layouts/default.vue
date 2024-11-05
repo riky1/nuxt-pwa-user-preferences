@@ -12,7 +12,7 @@
   </main>
 
   <footer>
-    footer
+    <SiteFooter />
   </footer>
 </template>
 
@@ -37,13 +37,16 @@ header {
 }
 
 main {
-  height: calc(100vh - (var(--header-height) + 1px) - var(--footer-height));
-  @extend %content--wrapper;
+  color: var(--text-primary);
+  height: calc(100vh - (var(--header-height) + 2px) - var(--footer-height));
+  background-color: var(--main-bg);
+  // @extend %content--wrapper;
 }
 
 footer {
-  height: var(--footer-height);
+  background-color: var(--main-bg);
+  border-top: 1px solid var(--footer-border);
 
-  @extend %content--wrapper;
+  // @extend %content--wrapper;
 }
 </style>

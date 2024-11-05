@@ -1,12 +1,5 @@
 <script setup>
-useHead({
-  link: [
-    {
-       rel: 'stylesheet',
-       href: './_root-light.css' 
-    } 
-  ]
-})
+
 </script>
 
 <template>

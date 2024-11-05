@@ -1,9 +1,12 @@
 :root {
-  --text-primary: var(--zinc-700);
-  --text-primary-hover: var(--zinc-400);
+  --text-primary: var(--gray-700);
+  --text-primary-hover: var(--gray-400);
 
   --header-bg: var(--white);
-  --header-border: var(--zinc-200);
+  --header-border: var(--gray-300);
+  --footer-border: var(--gray-300);
 
-  --button-bg-hover: var(--zinc-200);
+  --main-bg: var(--gray-50);
+
+  --button-bg-hover: var(--gray-200);
 }

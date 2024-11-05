@@ -1,26 +1,28 @@
 <script setup>
 
+const isDark = useDark()
+
 const links = [
   {
     label: 'Home',
     icon: 'i-heroicons-book-open',
     to: '/'
   },
-  {
-    label: 'Docs',
-    icon: 'i-heroicons-book-open',
-    to: '/getting-started'
-  },
-  {
-    label: 'Pro',
-    icon: 'i-heroicons-square-3-stack-3d',
-    to: '/pro'
-  },
-  {
-    label: 'Releases',
-    icon: 'i-heroicons-rocket-launch',
-    to: '/releases'
-  }
+  // {
+  //   label: 'Docs',
+  //   icon: 'i-heroicons-book-open',
+  //   to: '/getting-started'
+  // },
+  // {
+  //   label: 'Pro',
+  //   icon: 'i-heroicons-square-3-stack-3d',
+  //   to: '/pro'
+  // },
+  // {
+  //   label: 'Releases',
+  //   icon: 'i-heroicons-rocket-launch',
+  //   to: '/releases'
+  // }
 ]
 
 </script>
@@ -30,7 +32,7 @@ const links = [
     <nav>
       <ul>
         <li v-for="link in links" key="index">
-          <NuxtLink :to="link.to" title="link.label">
+          <NuxtLink :to="link.to" :title="link.label" class="btn">
             {{ link.label }}
           </NuxtLink>
         </li>
@@ -38,14 +40,14 @@ const links = [
     </nav>
 
     <div class="header__right">
+      <ButtonToggleTheme /> 
       <button class="btn">
-        <img src="/assets/icons/sun.svg" alt="">
+        <img v-if="isDark" src="/assets/icons/github-dark.svg" alt="">
+        <img v-else src="/assets/icons/github-light.svg" alt="">
       </button>
       <button class="btn">
-        <img src="/assets/icons/github-light.svg" alt="">
-      </button>
-      <button class="btn">
-        <img src="/assets/icons/option-light.svg" alt="">
+        <img v-if="isDark" src="/assets/icons/option-dark.svg" alt="">
+        <img v-else src="/assets/icons/option-light.svg" alt="">
       </button>
     </div>
     
@@ -81,14 +83,14 @@ nav {
         font-weight: 600;
         line-height: 1.5rem;
         text-decoration: none;
-        padding: 5px 0;
+        padding: 5px 10px;
         background-color: transparent;
         border-radius: .375rem;
-        transition: color 0.3s ease;
+        // transition: color 0.3s ease;
 
-        &:hover {
-          color: var(--text-primary-hover);
-        }
+        // &:hover {
+        //   color: var(--text-primary-hover);
+        // }
       }
     }
   }
@@ -100,11 +102,6 @@ nav {
 
   @include media-query(lg) {
     gap: 0.5rem;
-  }
-
-  img {
-    width: 1.25rem;
-    height: 1.25rem;
   }
 }
 </style>
