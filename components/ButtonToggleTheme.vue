@@ -1,29 +1,34 @@
 <script setup>
 
-const { getCookie, setCookie } = useCookies("dark-mode")
-
 const isDark = useDark()
-const toggleDark = useToggle(isDark)
-const darkMode = ref()
+const [darkMode, toggleDark] = useToggle(isDark.value)
 
-const cookie = getCookie()
+const cookie = useCookie('dark-mode')
 
-if (cookie !== undefined) {
+const updateTheme = (event) => {
+  isDark.value = event.matches
+  darkMode.value = isDark.value
+}
+  
+if (cookie && cookie.value !== undefined) {
   darkMode.value = cookie
   isDark.value = darkMode.value
 } else if (import.meta.client) {
-  isDark.value = window.matchMedia("(prefers-color-scheme: dark)").matches
-  
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', event => {
-    isDark.value = event.matches
-    darkMode.value = isDark.value
+  const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+  isDark.value = darkModeMediaQuery.matches
+
+  darkModeMediaQuery.addEventListener('change', updateTheme)
+
+  onUnmounted(() => {
+    darkModeMediaQuery.removeEventListener('change', updateTheme);
   })
 }
 
 const toggleAndSaveTheme = () => {
   darkMode.value = toggleDark()
   isDark.value = darkMode.value
-  setCookie(darkMode.value)
+  cookie.value = darkMode.value
 }
 
 onMounted(() => {
@@ -34,22 +39,16 @@ useHead({
   link: [
     {
       rel: 'stylesheet',
-      href: () => {
-        if (isDark.value) {
-          return './_root-dark.css'
-        }
-
-        return'./_root-light.css'
-      }
+      href: () => (isDark.value ? './_root-dark.css' : './_root-light.css')
     }
   ]
 })
 </script>
 
 <template>
-  <button class="btn" @click="toggleAndSaveTheme()">
-    <img v-if="darkMode" src="/assets/icons/moon.svg" alt="">
-    <img v-else src="/assets/icons/sun.svg" alt="">
+  <button class="btn" @click="toggleAndSaveTheme">
+    <img v-if="darkMode" src="/assets/icons/moon.svg" alt="Icona tema scuro">
+    <img v-else src="/assets/icons/sun.svg" alt="Icona tema chiaro">
   </button>
 </template>
 
