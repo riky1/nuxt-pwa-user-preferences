@@ -1,1 +1,1 @@
-export const useDark = () => useState('isDark', () => true)
+export const useDark = () => useState('isDark', () => null)

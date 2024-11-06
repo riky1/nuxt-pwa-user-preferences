@@ -4,7 +4,7 @@ export default defineNuxtConfig({
   devtools: { enabled: false },
 
   modules: [
-    "@vite-pwa/nuxt"
+    "@vite-pwa/nuxt"    
   ],
 
   vite: {
