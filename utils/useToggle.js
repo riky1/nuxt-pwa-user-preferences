@@ -13,14 +13,3 @@ export function useToggle(initialValue = false) {
 
   return [state, toggle];
 }
-
-
-// export function useToggle(initialValue = false) {
-//   const state = ref(initialValue)
-
-//   function toggle() {
-//     return !state.value
-//   }
-
-//   return toggle
-// }
