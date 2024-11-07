@@ -1,6 +1,6 @@
 <script setup>
 
-const isDark = useDark()
+const { isDark, toggleTheme } = useTheme()
 
 const links = [
   {
@@ -40,7 +40,10 @@ const links = [
     </nav>
 
     <div class="header__right">
-      <ButtonToggleTheme /> 
+      <button class="btn" @click="toggleTheme">
+        <img v-if="isDark" src="/assets/icons/moon.svg" alt="Icona tema scuro">
+        <img v-else src="/assets/icons/sun.svg" alt="Icona tema chiaro">
+      </button>
       <button class="btn">
         <img v-if="isDark" src="/assets/icons/github-dark.svg" alt="">
         <img v-else src="/assets/icons/github-light.svg" alt="">
