@@ -4,12 +4,12 @@
  * @returns {Array} [state, toggle] - Lo stato attuale e la funzione toggle.
  */
 export function useToggle(initialValue = false) {
-  const state = ref(initialValue);
+  const state = ref(initialValue)
 
   function toggle() {
-    state.value = !state.value;
-    return state.value;
+    state.value = !state.value
+    return state.value
   }
 
-  return [state, toggle];
+  return [state, toggle]
 }
