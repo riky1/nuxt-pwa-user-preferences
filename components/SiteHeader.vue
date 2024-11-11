@@ -2,6 +2,8 @@
 
 const { isDark, toggleTheme } = useTheme()
 
+const getIconPath = (type) => `/assets/icons/${type}-${isDark.value ? 'dark' : 'light'}.svg`;
+
 const links = [
   {
     label: 'Home',
@@ -41,16 +43,13 @@ const links = [
 
     <div class="header__right">
       <button class="btn" @click="toggleTheme">
-        <img v-if="isDark" src="/assets/icons/moon.svg" alt="Icona tema scuro">
-        <img v-else src="/assets/icons/sun.svg" alt="Icona tema chiaro">
+        <img :src="getIconPath('theme')" alt="Theme Icon" />
       </button>
       <button class="btn">
-        <img v-if="isDark" src="/assets/icons/github-dark.svg" alt="">
-        <img v-else src="/assets/icons/github-light.svg" alt="">
+        <img :src="getIconPath('github')" alt="GitHub Icon" />
       </button>
       <button class="btn">
-        <img v-if="isDark" src="/assets/icons/option-dark.svg" alt="">
-        <img v-else src="/assets/icons/option-light.svg" alt="">
+        <img :src="getIconPath('option')" alt="Option Icon" />
       </button>
     </div>
     

@@ -1,6 +1,8 @@
 export function useTheme() {
-  const isDark = ref(useDark()) // Stato globale condiviso per il tema
+
+  const isDark = useDark() // Stato globale condiviso per il tema
   const cookie = useCookie('dark-mode') // Sincronizzazione con il cookie
+  let darkModeMediaQuery
 
   // Funzione per applicare il tema (aggiorna il CSS)
   const applyTheme = () => {
@@ -18,6 +20,7 @@ export function useTheme() {
   const toggleTheme = () => {
     isDark.value = !isDark.value // Aggiorna lo stato globale
     cookie.value = isDark.value // Sincronizza con il cookie
+
     applyTheme() // Aggiorna il CSS
   }
 
@@ -31,21 +34,21 @@ export function useTheme() {
   const initTheme = () => {
     if (cookie.value !== undefined) {
       isDark.value = cookie.value // Carica il tema dal cookie
-      
     } else if (import.meta.client) {
-      const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
-
       onMounted(() => {
+        darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
         isDark.value = darkModeMediaQuery.matches // Imposta il tema in base al sistema operativo
-      })      
-      
-      darkModeMediaQuery.addEventListener('change', updateThemeFromSystem)
 
-      // Pulisce il listener quando il componente viene smontato
-      onUnmounted(() => {
-        darkModeMediaQuery.removeEventListener('change', updateThemeFromSystem)
-      })
+        darkModeMediaQuery.addEventListener('change', updateThemeFromSystem)
+      })      
     }
+
+    // Pulisce il listener quando il componente viene smontato
+    onUnmounted(() => {
+      if (darkModeMediaQuery) {
+        darkModeMediaQuery.removeEventListener('change', updateThemeFromSystem)
+      }
+    })
 
     applyTheme()
   }
