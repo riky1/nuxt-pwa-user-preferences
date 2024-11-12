@@ -2,7 +2,9 @@
 
 const { isDark, toggleTheme } = useTheme()
 
-const getIconPath = (type) => `/assets/icons/${type}-${isDark.value ? 'dark' : 'light'}.svg`;
+const getIconPath = (type) => {
+  return `/assets/icons/${type}-${isDark.value ? 'dark' : 'light'}.svg`
+}
 
 const links = [
   {

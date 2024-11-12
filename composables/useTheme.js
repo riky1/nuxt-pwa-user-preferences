@@ -2,7 +2,6 @@ export function useTheme() {
 
   const isDark = useDark() // Stato globale condiviso per il tema
   const cookie = useCookie('dark-mode') // Sincronizzazione con il cookie
-  let darkModeMediaQuery
 
   // Funzione per applicare il tema (aggiorna il CSS)
   const applyTheme = () => {
@@ -36,7 +35,7 @@ export function useTheme() {
       isDark.value = cookie.value // Carica il tema dal cookie
     } else if (import.meta.client) {
       onMounted(() => {
-        darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+        const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
         isDark.value = darkModeMediaQuery.matches // Imposta il tema in base al sistema operativo
 
         darkModeMediaQuery.addEventListener('change', updateThemeFromSystem)
