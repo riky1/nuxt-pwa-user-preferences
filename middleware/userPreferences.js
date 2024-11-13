@@ -2,7 +2,11 @@
  * Middleware per gestire le preferenze utente.
  */
 
-export default defineNuxtRouteMiddleware(async () => {
+export default defineNuxtRouteMiddleware(async (to, from) => {
+
+  if (to.params.id === '1') {
+    return abortNavigation()
+  }
 
   const userPrefs = useStorePreferences() // Inizializza lo store
   const cookie = useCookie('user-prefs') // Sincronizzazione con il cookie

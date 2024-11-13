@@ -12,21 +12,16 @@ const links = [
     icon: 'i-heroicons-book-open',
     to: '/'
   },
-  // {
-  //   label: 'Docs',
-  //   icon: 'i-heroicons-book-open',
-  //   to: '/getting-started'
-  // },
-  // {
-  //   label: 'Pro',
-  //   icon: 'i-heroicons-square-3-stack-3d',
-  //   to: '/pro'
-  // },
-  // {
-  //   label: 'Releases',
-  //   icon: 'i-heroicons-rocket-launch',
-  //   to: '/releases'
-  // }
+  {
+    label: 'Docs',
+    icon: 'i-heroicons-book-open',
+    to: '/docs'
+  },
+  {
+    label: 'Releases',
+    icon: 'i-heroicons-rocket-launch',
+    to: '/releases'
+  }
 ]
 
 </script>
@@ -95,6 +90,11 @@ nav {
         // &:hover {
         //   color: var(--text-primary-hover);
         // }
+
+        &.router-link-active {
+          color: var(--text-primary-hover); // Colore per il link attivo
+          border-bottom: 2px solid var(--text-primary-hover); // Sottolineatura
+        }
       }
     }
   }

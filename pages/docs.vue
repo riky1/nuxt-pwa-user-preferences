@@ -16,8 +16,8 @@ const { data: preferences, status, error } = useAsyncData('preferences', async (
 
 <template>
   <div class="content__wrapper">
-    <h1>Index</h1>
-    
+    <h1>Docs</h1>
+
     <div v-if="!preferences || status === 'pending'">Caricamento...</div>
 
     <div v-else-if="error">Errore: {{ error.message }}</div>
@@ -28,7 +28,6 @@ const { data: preferences, status, error } = useAsyncData('preferences', async (
         <div>{{ prefs }}</div>
       </template>
     </div>
-
   </div>
 </template>
 
@@ -39,15 +38,6 @@ const { data: preferences, status, error } = useAsyncData('preferences', async (
   .list__wrapper {
     display: grid;
     grid-template-columns: 160px auto;
-    // gap: 3px;
-
-    // :nth-child(4n + 1) {
-    //   background-color: aliceblue;
-    // }
-
-    // :nth-child(4n + 2) {
-    //   background-color: aliceblue;
-    // }
   }
 }
 </style>

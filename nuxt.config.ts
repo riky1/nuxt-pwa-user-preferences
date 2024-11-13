@@ -1,7 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
+import process from 'node:process'
+const sw = process.env.SW === 'true'
+
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
   devtools: { enabled: false },
+  ssr: true,
 
   modules: [
     "@vite-pwa/nuxt"    
@@ -31,8 +36,16 @@ export default defineNuxtConfig({
   pwa: {
     devOptions: {
       enabled: true,
-      suppressWarnings: true
+      suppressWarnings: true,
+      navigateFallback: '/',
+      navigateFallbackAllowlist: [/^\/$/],
+      type: 'module',
     },
+
+    strategies: sw ? 'injectManifest' : 'generateSW',
+    srcDir: sw ? 'service-worker' : undefined,
+    filename: sw ? 'sw.ts' : undefined,
+    registerType: 'autoUpdate',
 
     manifest: {
       name: "Nuxt3 PWA - User preferences",
@@ -73,8 +86,8 @@ export default defineNuxtConfig({
       ],
     },
 
-    registerType: "autoUpdate",
     workbox: {
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
       runtimeCaching: [
         {
           urlPattern: ({ url }) => url.origin === 'https://api.maptiler.com',
@@ -158,6 +171,10 @@ export default defineNuxtConfig({
           }
         }
       ]
+    },
+
+    injectManifest: {
+      globPatterns: ['**/*.{js,css,html,png,svg,ico}'],
     },
   },
 });
