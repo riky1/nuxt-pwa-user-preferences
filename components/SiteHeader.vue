@@ -87,9 +87,9 @@ nav {
         border-radius: .375rem;
         // transition: color 0.3s ease;
 
-        // &:hover {
-        //   color: var(--text-primary-hover);
-        // }
+        &:hover {
+          border-bottom: 2px solid var(--text-primary-hover);
+        }
 
         &.router-link-active {
           color: var(--text-primary-hover); // Colore per il link attivo

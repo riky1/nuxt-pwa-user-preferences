@@ -56,6 +56,7 @@ export default defineNuxtConfig({
       display: "standalone",
       scope: '/',
       start_url: "/",
+      
       icons: [
         {
           src: "/icons/icon-192.webp",
