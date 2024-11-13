@@ -4,7 +4,7 @@
 
 <template>
   <div class="content__wrapper">
-    <h1>Index</h1>
+    <h1>Getting started</h1>
   </div>
 </template>
 
