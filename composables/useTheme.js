@@ -1,3 +1,7 @@
+/**
+ * Composable per gestire il Tema caricando css diversi.
+ */
+
 export function useTheme() {
 
   const isDark = useDark() // Stato globale condiviso per il tema

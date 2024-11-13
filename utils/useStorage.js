@@ -1,3 +1,8 @@
+/**
+ * Funzione per gestire localStorage.
+ * @param {String} storeName - nome storage.
+ * @returns {Object} [getStorage, setStorage]
+ */
 export function useStorage(storeName) {
 
   function getStorage() {
