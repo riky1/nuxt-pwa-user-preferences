@@ -61,7 +61,11 @@ const links = [
     
   </div>
 
-  <SiteModal :is-open="showModal" />
+  <SiteModal :is-open="showModal">
+    <template #content>
+      <UserPrefs />
+    </template>
+  </SiteModal>
 </template>
 
 <style lang="scss" scoped>

@@ -7,7 +7,7 @@
 <template>
   <div class="modal__overlay" :class="{ 'open': isOpen }"></div>
   <div class="modal__wrapper" :class="{ 'open': isOpen }">
-
+    <slot name="content"></slot>
   </div>
 </template>
 
