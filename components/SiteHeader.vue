@@ -1,19 +1,11 @@
 <script setup>
 
 const { isDark, toggleTheme } = useTheme()
+const { isOpen, toggleModal } = useModal()
 
 const getIconPath = (type) => {
   return `/assets/icons/${type}-${isDark.value ? 'dark' : 'light'}.svg`
 }
-
-const showModal = ref(false)
-
-const [state, toggle] = useToggle(showModal.value)
-
-const toggleModal = () => {
-  showModal.value = toggle()
-  console.log('showModal: ', showModal.value);
-};
 
 const links = [
   {
@@ -36,6 +28,12 @@ const links = [
 </script>
 
 <template>
+  <SiteModal :is-open="isOpen">
+    <template #content>
+      <UserPrefs />
+    </template>
+  </SiteModal>
+    
   <div class="header__wrapper">
     <nav>
       <ul>
@@ -60,28 +58,28 @@ const links = [
     </div>
     
   </div>
-
-  <SiteModal :is-open="showModal">
-    <template #content>
-      <UserPrefs />
-    </template>
-  </SiteModal>
 </template>
 
 <style lang="scss" scoped>
 // @import '../assets/scss/content-wrapper';
 
 .header__wrapper {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem; // 12px
-  height: calc(var(--header-height) - 0.5rem);
+  height: var(--header-height-small);
+  background-color: var(--header-bg);
+  border-top: 1px solid var(--header-border);
+  z-index: 10;
   
   @extend %content--wrapper;
 
   @include media-query(xs) {
     height: var(--header-height);
+    border-top: none;
+    border-bottom: 1px solid var(--header-border);
   }
 }
 

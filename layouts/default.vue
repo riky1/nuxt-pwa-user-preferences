@@ -31,15 +31,15 @@ header {
   position: fixed;
   width: 100%;
   bottom: 0;
-  background-color: var(--header-bg);
-  border-top: 1px solid var(--header-border);
+  // background-color: var(--header-bg);
+  // border-top: 1px solid var(--header-border);
   z-index: 50; 
 
   @include media-query(xs) {
     top: 0;
     bottom: auto;
-    border-top: none;
-    border-bottom: 1px solid var(--header-border);
+    // border-top: none;
+    // border-bottom: 1px solid var(--header-border);
   }
 }
 

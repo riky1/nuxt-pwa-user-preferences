@@ -15,19 +15,19 @@
 .modal__overlay {
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 0;
   background-color: var(--modal-bg);
   opacity: 0;
-  top: calc(-100vh + var(--header-height) - 0.5rem);
+  top: calc(-100vh + var(--header-height-small));
   transition: all 0.3s ease;
-  z-index: 1;
+  // z-index: 1;
 
   @include media-query(xs) {
     top: calc(var(--header-height) + 1px);
   }
 
   &.open {
-    height: calc(100vh - var(--header-height) + 0.5rem - 1px);
+    height: calc(100vh - var(--header-height-small) - 1px);
     opacity: 0.5;
   }
 }
@@ -36,13 +36,13 @@
   position: absolute;
   width: 100%;
   height: 0;
-  background-color: var(--modal-bg);
+  background-color: var(--main-bg);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   left: 0;
-  bottom: calc(var(--header-height) - 0.5rem + 1px);
+  bottom: calc(var(--header-height-small) + 1px);
   transition: all 0.3s ease;
-  z-index: 2;
+  // z-index: 2;
 
   @include media-query(xs) {
     bottom: calc(-100vh + var(--header-height) + 1px);
