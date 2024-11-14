@@ -11,6 +11,7 @@
 <style lang="scss" scoped>
 .footer__wrapper {
   display: flex;
+  justify-content: center;
   align-items: center;
   color: var(--text-primary);
   height: var(--footer-height);

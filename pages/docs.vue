@@ -37,7 +37,7 @@ const { data: preferences, status, error } = useAsyncData('preferences', async (
 
   .list__wrapper {
     display: grid;
-    grid-template-columns: 160px auto;
+    grid-template-columns: clamp(9rem, 12vw + 6rem, 12rem) auto;
   }
 }
 </style>

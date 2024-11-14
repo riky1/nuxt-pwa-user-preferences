@@ -28,25 +28,33 @@
 // @import '../assets/scss/content-wrapper.scss';
 
 header {
-  position: sticky;
+  position: fixed;
   width: 100%;
-  top: 0;
+  bottom: 0;
   background-color: var(--header-bg);
-  border-bottom: 1px solid var(--header-border);
+  border-top: 1px solid var(--header-border);
   z-index: 50; 
+
+  @include media-query(xs) {
+    top: 0;
+    bottom: auto;
+    border-top: none;
+    border-bottom: 1px solid var(--header-border);
+  }
 }
 
 main {
   color: var(--text-primary);
-  height: calc(100vh - (var(--header-height) + 2px) - var(--footer-height));
+  height: calc(100vh - (var(--header-height) - 0.5rem) - var(--footer-height));
   background-color: var(--main-bg);
-  // @extend %content--wrapper;
+
+  @include media-query(xs) {
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    margin-top: var(--header-height);
+  }
 }
 
 footer {
   background-color: var(--main-bg);
-  border-top: 1px solid var(--footer-border);
-
-  // @extend %content--wrapper;
 }
 </style>

@@ -6,6 +6,15 @@ const getIconPath = (type) => {
   return `/assets/icons/${type}-${isDark.value ? 'dark' : 'light'}.svg`
 }
 
+const showModal = ref(false)
+
+const [state, toggle] = useToggle(showModal.value)
+
+const toggleModal = () => {
+  showModal.value = toggle()
+  console.log('showModal: ', showModal.value);
+};
+
 const links = [
   {
     label: 'Home',
@@ -45,12 +54,14 @@ const links = [
       <button class="btn">
         <img :src="getIconPath('github')" alt="GitHub Icon" />
       </button>
-      <button class="btn">
+      <button class="btn" @click="toggleModal">
         <img :src="getIconPath('option')" alt="Option Icon" />
       </button>
     </div>
     
   </div>
+
+  <SiteModal :is-open="showModal" />
 </template>
 
 <style lang="scss" scoped>
@@ -61,9 +72,13 @@ const links = [
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem; // 12px
-  height: var(--header-height);
+  height: calc(var(--header-height) - 0.5rem);
   
   @extend %content--wrapper;
+
+  @include media-query(xs) {
+    height: var(--header-height);
+  }
 }
 
 nav {
@@ -87,13 +102,13 @@ nav {
         border-radius: .375rem;
         // transition: color 0.3s ease;
 
-        &:hover {
-          border-bottom: 2px solid var(--text-primary-hover);
-        }
+        // &:hover {
+        //   border-bottom: 2px solid var(--text-primary-hover);
+        // }
 
         &.router-link-active {
           color: var(--text-primary-hover); // Colore per il link attivo
-          border-bottom: 2px solid var(--text-primary-hover); // Sottolineatura
+          // border-bottom: 2px solid var(--text-primary-hover); // Sottolineatura
         }
       }
     }

@@ -8,5 +8,7 @@
 
   --main-bg: var(--gray-800);
 
+  --modal-bg: var(--gray-700);
+
   --button-bg-hover: var(--gray-600);
 }
