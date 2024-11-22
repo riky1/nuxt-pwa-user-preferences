@@ -1,7 +1,14 @@
 <script setup>
+import UserPrefs from "@/components/UserPrefs.vue"
 
 const { isDark, toggleTheme } = useTheme()
-const { isOpen, toggleModal } = useModal()
+// const { isOpen, toggleModal } = useModal()
+
+const { togglePanel } = usePanel()
+
+const toggleUserPrefsPanel = () => {
+  togglePanel(UserPrefs)
+}
 
 const getIconPath = (type) => {
   return `/assets/icons/${type}-${isDark.value ? 'dark' : 'light'}.svg`
@@ -28,11 +35,11 @@ const links = [
 </script>
 
 <template>
-  <SiteModal :is-open="isOpen">
+  <!-- <SiteModal :is-open="isOpen">
     <template #content>
       <UserPrefs />
     </template>
-  </SiteModal>
+  </SiteModal> -->
     
   <div class="header__wrapper">
     <nav>
@@ -52,7 +59,7 @@ const links = [
       <button class="btn">
         <img :src="getIconPath('github')" alt="GitHub Icon" />
       </button>
-      <button class="btn" @click="toggleModal">
+      <button class="btn" @click="toggleUserPrefsPanel">
         <img :src="getIconPath('option')" alt="Option Icon" />
       </button>
     </div>
@@ -69,17 +76,17 @@ const links = [
   justify-content: space-between;
   align-items: center;
   gap: 0.75rem; // 12px
-  height: var(--header-height-small);
+  height: var(--header-height);
   background-color: var(--header-bg);
-  border-top: 1px solid var(--header-border);
+  // border-top: 1px solid var(--header-border);
   z-index: 10;
   
   @extend %content--wrapper;
 
   @include media-query(xs) {
     height: var(--header-height);
-    border-top: none;
-    border-bottom: 1px solid var(--header-border);
+    // border-top: none;
+    // border-bottom: 1px solid var(--header-border);
   }
 }
 

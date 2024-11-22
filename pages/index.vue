@@ -27,6 +27,25 @@ const { data: preferences, status, error } = useAsyncData('preferences', async (
         <div>{{ key }}:</div>
         <div>{{ prefs }}</div>
       </template>
+
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
+      <p>asdasdasd asda sd asd</p>
     </div>
 
   </div>

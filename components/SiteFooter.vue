@@ -13,7 +13,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--text-primary);
   height: var(--footer-height);
 
   @extend %content--wrapper;
